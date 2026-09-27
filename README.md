@@ -4,4 +4,4 @@ This is for Linux network namespace communication with *Raw Socket*.
 - ### `socket_s()`
 Gen socket object and file descriptor to communicate.
 If cant generate socket, then print error message.
->perror("socket")
+>`perror("socket")`
