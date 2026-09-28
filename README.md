@@ -1,14 +1,13 @@
-This is for Linux network namespace communication with *Raw Socket*.
-# sender.hpp
-**namespace is botan_s**
+This is for Linux network namespace communication with *Raw Socket*.  
+**namespace is botan_s**  
+# sender.hpp  
 - ### `void socket_s()`
 Create socket and file descriptor to communicate.  
 - ### `int framing()`
 Creates a frame from given parameter value.  
 and make sockaddr_11 struct specifiyng where to send frame.  
 Calls the `sendto()` syscall and pass frame, sockaddr_11 structure as argument.
-# recv.hpp
-**namespace is botan_r**
+# recv.hpp  
 - ### `void socket_r()`
 Create socket and file descriptor to receive frame.  
 - ### `int recv()`
