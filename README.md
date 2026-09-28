@@ -1,5 +1,5 @@
 This is for Linux network namespace communication with *Raw Socket*.  
-**namespace is botan_s**  
+**namespace is botan**  
 # sender.hpp  
 - ### `void socket_s()`
 Create socket and file descriptor to communicate.  
