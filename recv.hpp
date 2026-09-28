@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <cstdio>
 
-namespace botan_r {
+namespace botan {
 	int fd;
 	unsigned char buffer[65536];
 	void socket_r() {
