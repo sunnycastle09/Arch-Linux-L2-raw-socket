@@ -10,7 +10,7 @@
 namespace botan {
 	int fld;
 	unsigned char buffer[65536];
-	void socket() {
+	void socket_r() {
 		fld = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(0x88b5));
 		if (fld < 0) {
 			perror("socket");
