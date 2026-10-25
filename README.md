@@ -5,8 +5,8 @@ This is for Linux network namespace communication with *Raw Socket*.
 Create socket and file descriptor to communicate.  
 - ### `int framing()`
 Creates a frame from given parameter value.  
-and make sockaddr_11 struct specifiyng where to send frame.  
-Calls the `sendto()` syscall and pass frame, sockaddr_11 structure as argument.
+and make sockaddr_ll struct specifiyng where to send frame.  
+Calls the `sendto()` syscall and pass frame, sockaddr_ll structure as argument.
 # recv.hpp  
 - ### `void socket_r()`
 Create socket and file descriptor to receive frame.  
