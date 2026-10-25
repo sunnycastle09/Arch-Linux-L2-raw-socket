@@ -21,8 +21,8 @@ namespace botan {
 	}
 	//int framing(ifindex,desmac,srcmac,payload)
 	int framing(int ifindex,std::string desmac, std::string srcmac, std::string payload) {
-		long des_mac=std::stoi(desmac,nullptr,16);
-		long src_mac=std::stoi(srcmac,nullptr,16);
+		long des_mac=std::stoull(desmac,nullptr,16);
+		long src_mac=std::stoull(srcmac,nullptr,16);
 		std::vector <unsigned char> frame;
 		unsigned char tmp;
 		for (int i = 0; i < 6; i++) { //desmac
