@@ -13,7 +13,8 @@
 
 namespace botan {
 	int fd;
-	void socket_s() { //only once execute in one netns
+	unsigned char buffer[65536];
+	void socket() { //only once execute in one netns
 		fd = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(0x88b5));
 		if (fd < 0) {
 			perror("socket");
@@ -50,6 +51,16 @@ namespace botan {
 			perror("sendto");
 		}
 		return frame.size();
+	}
+	int recv() {
+		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, nullptr, nullptr);
+		if (result < 0) {
+			perror("recvfrom");
+		}
+		return result;
+	}
+	void close_socket() {
+		syscall(SYS_close, fd);
 	}
 }
 #endif
