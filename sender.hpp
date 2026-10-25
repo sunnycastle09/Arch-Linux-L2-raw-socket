@@ -14,7 +14,7 @@
 namespace botan {
 	int fd;
 	void socket_s() { //only once execute in one netns
-		fd = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+		fd = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(0x88b5));
 		if (fd < 0) {
 			perror("socket");
 		}
