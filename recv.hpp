@@ -8,23 +8,23 @@
 #include <cstdio>
 
 namespace botan {
-	int fd;
+	int fld;
 	unsigned char buffer[65536];
 	void socket_r() {
-		fd = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(0x88b5));
-		if (fd < 0) {
+		fld = syscall(SYS_socket, AF_PACKET, SOCK_RAW, htons(0x88b5));
+		if (fld < 0) {
 			perror("socket");
 		}
 	}
 	int recv() {
-		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, nullptr, nullptr);
+		long result = syscall(SYS_recvfrom, fld, buffer, sizeof(buffer), 0, nullptr, nullptr);
 		if (result < 0) {
 			perror("recvfrom");
 		}
 		return result;
 	}
 	void close_socket() {
-		syscall(SYS_close, fd);
+		syscall(SYS_close, fld);
 	}
 }
 #endif
