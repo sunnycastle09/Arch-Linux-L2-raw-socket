@@ -49,13 +49,17 @@ namespace botan {
 		std::cout << "\n";
 		if (result < 0) {
 			perror("sendto");
+			exit(1);
 		}
 		return frame.size();
 	}
+	sockaddr_ll addr_rcv{};
+	socklen_t addr_len=sizeof(addr_rcv);
 	int recv() {
-		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, nullptr, nullptr);
+		long result = syscall(SYS_recvfrom, fd, buffer, sizeof(buffer), 0, &addr_rcv, &addr_len);
 		if (result < 0) {
 			perror("recvfrom");
+			exit(1);
 		}
 		return result;
 	}
